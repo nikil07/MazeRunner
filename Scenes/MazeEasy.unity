@@ -1076,6 +1076,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: _speed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: _airControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: _acceleration
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: _forwardSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: _extraJumpTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: _baseJumpHeight
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: _maxMidAirJumps
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545134463606322891, guid: 4c0a98bd2dae81b49ad5280206947330,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1545134464596932441, guid: 4c0a98bd2dae81b49ad5280206947330,
         type: 3}
       propertyPath: m_RootOrder
@@ -2490,6 +2530,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 968394918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1024337286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1545134464596932446, guid: 4c0a98bd2dae81b49ad5280206947330,
+    type: 3}
+  m_PrefabInstance: {fileID: 475996501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1024337288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024337286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b715d134a8b1e4d488f27426c2d76475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPersonController: {fileID: 1310993894}
+  characterMovement: {fileID: 1310993896}
 --- !u!1001 &1189666932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2940,6 +3000,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1241622569}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310993894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
+    type: 3}
+  m_PrefabInstance: {fileID: 475996501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd78ad1b02523246af003cc14e20b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1310993896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1545134463606322891, guid: 4c0a98bd2dae81b49ad5280206947330,
+    type: 3}
+  m_PrefabInstance: {fileID: 475996501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eae04a4fe514bf4789aec1bdb93100b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1338435993
 PrefabInstance:
   m_ObjectHideFlags: 0
