@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1545134463606322888}
   - component: {fileID: 1545134463606322889}
   m_Layer: 0
-  m_Name: ECM_FirstPerson
+  m_Name: FirstPerson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,25 +175,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 20
   _angularSpeed: 540
-  _acceleration: 50
+  _acceleration: 100
   _deceleration: 20
   _groundFriction: 5
   _useBrakingFriction: 0
   _brakingFriction: 8
   _airFriction: 0
-  _airControl: 0.2
+  _airControl: 0
   _canCrouch: 1
   _standingHeight: 2
   _crouchingHeight: 1
-  _baseJumpHeight: 1.5
-  _extraJumpTime: 0.5
+  _baseJumpHeight: 100
+  _extraJumpTime: 10
   _extraJumpPower: 25
   _jumpPreGroundedToleranceTime: 0.15
   _jumpPostGroundedToleranceTime: 0.15
   _maxMidAirJumps: 1
+  jumpInterval: 10
+  maxNumberOfJumps: 6
   _useRootMotion: 0
   _rootMotionRotation: 0
-  _forwardSpeed: 500
+  _forwardSpeed: 100
   _backwardSpeed: 80
   _strafeSpeed: 10
   _runSpeedMultiplier: 4
@@ -298,6 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1545134464596932441}
+  - component: {fileID: -3736643795833570301}
   m_Layer: 0
   m_Name: PlayerChar
   m_TagString: Untagged
@@ -320,3 +323,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3736643795833570301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545134464596932446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b715d134a8b1e4d488f27426c2d76475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPersonController: {fileID: 1545134463606322889}
+  baseCharacterController: {fileID: 1545134463606322889}
+  textTimeToNextJump: {fileID: 0}
+  textJumpsLeft: {fileID: 0}

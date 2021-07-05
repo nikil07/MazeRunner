@@ -3,23 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using ECM.Controllers;
 using ECM.Components;
+using TMPro;
+using System;
 
 public class Character : MonoBehaviour
 {
 
     [SerializeField] BaseFirstPersonController firstPersonController;
-    [SerializeField] CharacterMovement characterMovement;
+    [SerializeField] BaseCharacterController baseCharacterController;
+    [SerializeField] TMP_Text textTimeToNextJump;
+    [SerializeField] TMP_Text textJumpsLeft;
  
     // Start is called before the first frame update
     void Start()
     {
-        print("speed of character " + firstPersonController.speed);
         
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       // print("speed of character " + characterMovement.velocity);
+        updateCharacterInfo();
+    }
+
+    private void updateCharacterInfo()
+    {
+        string textTimeToNextJumpString = baseCharacterController.getTimeToNextJump().ToString() + " Seconds to next Jump";
+        string textJumpsLeftString = baseCharacterController.getJumpsLeft().ToString() + " Jumps left";
+
+        textTimeToNextJump.SetText(textTimeToNextJumpString);
+        textJumpsLeft.SetText(textJumpsLeftString);
     }
 }
