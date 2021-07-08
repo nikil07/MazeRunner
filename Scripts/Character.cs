@@ -30,10 +30,11 @@ public class Character : MonoBehaviour
 
     private void updateCharacterInfo()
     {
-        string textTimeToNextJumpString = baseCharacterController.getTimeToNextJump().ToString() + " Seconds to next Jump";
+
+        string textTimeToNextJumpString = baseCharacterController.getTimeToNextJump() > 0 ? " in " + baseCharacterController.getTimeToNextJump() : "now";
         string textJumpsLeftString = baseCharacterController.getJumpsLeft().ToString() + " Jumps left";
 
-        textTimeToNextJump.SetText(textTimeToNextJumpString);
+        textTimeToNextJump.SetText("Can jump " + textTimeToNextJumpString);
         textJumpsLeft.SetText(textJumpsLeftString);
     }
 }
