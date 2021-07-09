@@ -36,15 +36,26 @@ public class EnterLevel : MonoBehaviour
             StartCoroutine(openMaze(3));
         }
         else {
-            StartCoroutine(openMaze(0));
+            StartCoroutine(openMaze(PlayerPrefs.GetInt("currentGameLevel") + 1));
         }
     }
 
-    IEnumerator openMaze(int maze)
+    public IEnumerator openMaze(int maze)
     {
         yield return new WaitForSeconds(1f);
-
-        // Code to execute after the delay
-        SceneManager.LoadScene(maze);
+        //maze++;
+        if (maze <= SceneManager.sceneCountInBuildSettings-2)
+        {
+            // Code to execute after the delay
+            PlayerPrefs.SetInt("currentGameLevel", maze);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene(maze);
+        }
+        else {
+            // Code to execute after the delay
+            PlayerPrefs.SetInt("currentGameLevel", 0);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene(0);
+        }
     }
 }

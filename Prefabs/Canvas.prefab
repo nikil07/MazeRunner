@@ -200,10 +200,10 @@ RectTransform:
   m_Father: {fileID: 1849571397059394272}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -36, y: -33}
-  m_SizeDelta: {x: -1350.3087, y: -1024.2}
+  m_AnchoredPosition: {x: -36, y: -3}
+  m_SizeDelta: {x: 569.6913, y: 175.80005}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1874317467643149822
 CanvasRenderer:
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -2.9888306, y: 0, z: 0, w: 0}
+  m_margin: {x: -2.9888306, y: 0, z: 0, w: -0.6395874}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -335,10 +335,10 @@ RectTransform:
   m_Father: {fileID: 1849571397059394272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1294.596, y: -50}
-  m_SizeDelta: {x: -1322.0905, y: -1041.2}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 625.40405, y: -8}
+  m_SizeDelta: {x: 597.90955, y: 158.80005}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &5960927640469578189
 CanvasRenderer:
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time left till next jump : '
+  m_text: Can Jump in
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a2820f70fa2f2ec4d80d6f2daa41b05a, type: 2}
   m_sharedMaterial: {fileID: 2146640166092207879, guid: a2820f70fa2f2ec4d80d6f2daa41b05a,
