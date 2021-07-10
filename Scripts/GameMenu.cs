@@ -57,4 +57,12 @@ public class GameMenu : MonoBehaviour
     private void callLoadLevel(int level) {
         StartCoroutine(enterLevel.openMaze(level));
     }
+
+    public void closePauseMenu() { 
+        
+    }
+
+    public void goToMainMenu() {
+        SceneManager.LoadScene(0);
+    }
 }
