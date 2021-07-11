@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
+    [SerializeField] Canvas playerInfoCanvas;
+    [SerializeField] Canvas pauseMenuCanvas;
+
     EnterLevel enterLevel;
+    private bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +20,17 @@ public class GameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+            if (!isPaused)
+            {
+                openPauseMenu();
+                isPaused = true;
+            }
+            else {
+                closePauseMenu();
+                isPaused = false;
+            }
+
     }
 
     public void startGame() {
@@ -37,10 +51,12 @@ public class GameMenu : MonoBehaviour
     }
 
     public void goToLandingScene() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("LandingScene");
     }
 
     public void showAllLevels() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("AllLevelsScene");
     }
 
@@ -58,11 +74,13 @@ public class GameMenu : MonoBehaviour
         StartCoroutine(enterLevel.openMaze(level));
     }
 
-    public void closePauseMenu() { 
-        
+    public void openPauseMenu() {
+        pauseMenuCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
-    public void goToMainMenu() {
-        SceneManager.LoadScene(0);
+    public void closePauseMenu() {
+        pauseMenuCanvas.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 }
