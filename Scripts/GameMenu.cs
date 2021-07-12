@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameMenu : MonoBehaviour
 {
-    [SerializeField] Canvas playerInfoCanvas;
     [SerializeField] Canvas pauseMenuCanvas;
+    [SerializeField] Canvas controlsCanvas;
+    [SerializeField] Canvas mainMenuCanvas;
 
     EnterLevel enterLevel;
     private bool isPaused = false;
@@ -14,7 +16,7 @@ public class GameMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enterLevel = FindObjectOfType<EnterLevel>(); 
+        enterLevel = FindObjectOfType<EnterLevel>();
     }
 
     // Update is called once per frame
@@ -24,14 +26,26 @@ public class GameMenu : MonoBehaviour
             if (!isPaused)
             {
                 openPauseMenu();
-                isPaused = true;
             }
             else {
                 closePauseMenu();
-                isPaused = false;
             }
 
     }
+
+    #region MainMenu
+
+    public void showControls() {
+        controlsCanvas.gameObject.SetActive(true);
+        mainMenuCanvas.gameObject.SetActive(false);
+    }
+
+    public void hideControls() {
+        controlsCanvas.gameObject.SetActive(false);
+        mainMenuCanvas.gameObject.SetActive(true);
+    }
+
+    #endregion
 
     public void startGame() {
         int getLevelScene = PlayerPrefs.GetInt("currentGameLevel"); // TODO get current level being played by user
@@ -75,11 +89,13 @@ public class GameMenu : MonoBehaviour
     }
 
     public void openPauseMenu() {
+        isPaused = true;
         pauseMenuCanvas.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void closePauseMenu() {
+        isPaused = false;
         pauseMenuCanvas.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
