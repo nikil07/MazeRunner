@@ -202,6 +202,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lotus_Flower_A_snaps003 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4508912088751974986, guid: f2fee76a671b2f146a8d852153157efe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2fee76a671b2f146a8d852153157efe, type: 3}
 --- !u!4 &4405547431202902867 stripped
@@ -221,6 +226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lotus_A_snaps003
+      objectReference: {fileID: 0}
+    - target: {fileID: 527723040248904403, guid: 2ec13c623e0ee00499333535041c8a77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 527723040248997619, guid: 2ec13c623e0ee00499333535041c8a77,
         type: 3}
@@ -382,6 +392,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bamboo_B_snaps003 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4757868254584923031, guid: 21d98311d41959546a381d0d0e94198f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21d98311d41959546a381d0d0e94198f, type: 3}
 --- !u!4 &5772365048823999431 stripped
@@ -472,6 +487,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bamboo_B_snaps003
       objectReference: {fileID: 0}
+    - target: {fileID: 4757868254584923031, guid: 21d98311d41959546a381d0d0e94198f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21d98311d41959546a381d0d0e94198f, type: 3}
 --- !u!4 &5866641744476867634 stripped
@@ -561,6 +581,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lotus_Flower_A_snaps003 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508912088751974986, guid: f2fee76a671b2f146a8d852153157efe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2fee76a671b2f146a8d852153157efe, type: 3}
@@ -719,6 +744,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lotus_A_snaps003 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 527723040248904403, guid: 2ec13c623e0ee00499333535041c8a77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 527723040248997619, guid: 2ec13c623e0ee00499333535041c8a77,
         type: 3}
@@ -880,6 +910,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bamboo_B_snaps003 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4757868254584923031, guid: 21d98311d41959546a381d0d0e94198f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21d98311d41959546a381d0d0e94198f, type: 3}
 --- !u!4 &9059067919307695084 stripped
@@ -899,6 +934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lotus_A_snaps003 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 527723040248904403, guid: 2ec13c623e0ee00499333535041c8a77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 527723040248997619, guid: 2ec13c623e0ee00499333535041c8a77,
         type: 3}
@@ -1126,6 +1166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lotus_Flower_A_snaps003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508912088751974986, guid: f2fee76a671b2f146a8d852153157efe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2fee76a671b2f146a8d852153157efe, type: 3}
