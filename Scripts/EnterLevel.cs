@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ECM.Components;
 
 public class EnterLevel : MonoBehaviour
 {
-    readonly string mazeRoom1 = "MazeRoom1";
-    readonly string mazeRoom2 = "MazeRoom2";
-    readonly string mazeRoom3 = "MazeRoom3";
+
+    MouseLook mouseLook;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mouseLook = FindObjectOfType<MouseLook>();
+        mouseLook.lockCursor = true;
     }
 
     // Update is called once per frame
@@ -23,25 +24,12 @@ public class EnterLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (transform.parent.name.Equals(mazeRoom1))
-        {
-            StartCoroutine(openMaze(1));
-        }
-        else if (transform.parent.name.Equals(mazeRoom2))
-        {
-            StartCoroutine(openMaze(2));
-        }
-        else if (transform.parent.name.Equals(mazeRoom3))
-        {
-            StartCoroutine(openMaze(3));
-        }
-        else {
-            StartCoroutine(openMaze(PlayerPrefs.GetInt("currentGameLevel") + 1));
-        }
+         StartCoroutine(openMaze(PlayerPrefs.GetInt("currentGameLevel") + 1));
     }
 
     public IEnumerator openMaze(int maze)
     {
+        mouseLook.lockCursor = false;
         yield return new WaitForSeconds(1f);
         //maze++;
         if (maze <= SceneManager.sceneCountInBuildSettings-2)

@@ -6,8 +6,10 @@ using System;
 
 public class ItemPickup : MonoBehaviour
 {
+    [SerializeField] int pickupPoints;
+    
+    public static event Action<String, int> ItemPickedUp;
 
-    public static event Action<String> ItemPickedUp;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +27,12 @@ public class ItemPickup : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player")) {
             handlePlayerCollectedItem();
+            Destroy(gameObject);
         }
     }
 
     private void handlePlayerCollectedItem() {
         //print("player picked up");
-        ItemPickedUp?.Invoke(gameObject.tag);
+        ItemPickedUp?.Invoke(gameObject.tag, pickupPoints);
     }
 }

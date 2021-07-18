@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using ECM.Components;
 
 public class GameMenu : MonoBehaviour
 {
     [SerializeField] Canvas pauseMenuCanvas;
     [SerializeField] Canvas controlsCanvas;
     [SerializeField] Canvas mainMenuCanvas;
+    [SerializeField] TMP_Text pickupsText;
 
     EnterLevel enterLevel;
     private bool isPaused = false;
@@ -98,5 +101,10 @@ public class GameMenu : MonoBehaviour
         isPaused = false;
         pauseMenuCanvas.gameObject.SetActive(false);
         Time.timeScale = 1;
+        FindObjectOfType<MouseLook>().externalLockCursor();
+    }
+
+    public void updatePickupText(int picksupsLeft, int totalPickups) {
+        pickupsText.SetText(picksupsLeft + "/" + totalPickups);
     }
 }
