@@ -13,6 +13,8 @@ public class EnterLevel : MonoBehaviour
     void Start()
     {
         mouseLook = FindObjectOfType<MouseLook>();
+        if (!mouseLook)
+            return;
         mouseLook.lockCursor = true;
     }
 
@@ -29,7 +31,8 @@ public class EnterLevel : MonoBehaviour
 
     public IEnumerator openMaze(int maze)
     {
-        mouseLook.lockCursor = false;
+        if (mouseLook)
+            mouseLook.lockCursor = false;
         yield return new WaitForSeconds(1f);
         //maze++;
         if (maze <= SceneManager.sceneCountInBuildSettings-2)

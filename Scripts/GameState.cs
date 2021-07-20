@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    [SerializeField] private int remainingPickups;
-
+    private int remainingPickups;
     private int totalPickups;
     GameMenu gameMenu;
 
@@ -14,8 +13,31 @@ public class GameState : MonoBehaviour
     {
         ItemPickup.ItemPickedUp += handleItemPickup;
         gameMenu = FindObjectOfType<GameMenu>();
-        totalPickups = remainingPickups;
+        StartCoroutine(setPickups());
+    }
+
+    IEnumerator setPickups()
+    {
+        yield return new WaitForSeconds(1f);
+        totalPickups = getTotalPickups();
+        remainingPickups = getRemainingPickups();
         gameMenu.updatePickupText(remainingPickups, totalPickups);
+    }
+
+    private void setRemainingPickups() {
+        PlayerPrefs.SetInt("REMAINING_PICKUPS", remainingPickups);
+        PlayerPrefs.Save();
+    }
+
+    private int getRemainingPickups() {
+        if (PlayerPrefs.HasKey("REMAINING_PICKUPS"))
+            return PlayerPrefs.GetInt("REMAINING_PICKUPS");
+        else
+            return getTotalPickups();
+    }
+
+    private int getTotalPickups() {
+        return GameObject.Find("Pickups").gameObject.transform.childCount;
     }
 
     private void OnDestroy()
@@ -32,7 +54,10 @@ public class GameState : MonoBehaviour
     private void handleItemPickup(string tag, int pickupPoints) {
         print(tag + " picked up");
         remainingPickups -= pickupPoints;
-        
+        if (remainingPickups < 0) {
+            return;
+        }
+        setRemainingPickups();
         gameMenu.updatePickupText(remainingPickups, totalPickups);
     }
 

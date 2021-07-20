@@ -13,6 +13,10 @@ public class Character : MonoBehaviour
     [SerializeField] BaseCharacterController baseCharacterController;
     [SerializeField] TMP_Text textTimeToNextJump;
     [SerializeField] TMP_Text textJumpsLeft;
+    [Tooltip("Press B to cheat, C to return")]
+    [SerializeField] Transform cheatPosition;
+
+    private Transform currentPosition;
  
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,18 @@ public class Character : MonoBehaviour
     void Update()
     {
         updateCharacterInfo();
+        handleCheatCodes();
+    }
+
+    private void handleCheatCodes() {
+        currentPosition = transform;
+        if (Input.GetKey(KeyCode.B)) {
+            transform.position = cheatPosition.position;
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            transform.position = currentPosition.position;
+        }
     }
 
     private void updateCharacterInfo()

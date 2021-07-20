@@ -20,6 +20,7 @@ public class GameMenu : MonoBehaviour
     void Start()
     {
         enterLevel = FindObjectOfType<EnterLevel>();
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
@@ -101,7 +102,7 @@ public class GameMenu : MonoBehaviour
         isPaused = false;
         pauseMenuCanvas.gameObject.SetActive(false);
         Time.timeScale = 1;
-        FindObjectOfType<MouseLook>().externalLockCursor();
+        //FindObjectOfType<MouseLook>().externalLockCursor();
     }
 
     public void updatePickupText(int picksupsLeft, int totalPickups) {

@@ -3048,6 +3048,14 @@ PrefabInstance:
       propertyPath: textTimeToNextJump
       value: 
       objectReference: {fileID: 1908962825}
+    - target: {fileID: 1024337288, guid: 4c0a98bd2dae81b49ad5280206947330, type: 3}
+      propertyPath: textJumpsLeft
+      value: 
+      objectReference: {fileID: 715017202}
+    - target: {fileID: 1024337288, guid: 4c0a98bd2dae81b49ad5280206947330, type: 3}
+      propertyPath: textTimeToNextJump
+      value: 
+      objectReference: {fileID: 1908962825}
     - target: {fileID: 1545134463606322889, guid: 4c0a98bd2dae81b49ad5280206947330,
         type: 3}
       propertyPath: jumpInterval
