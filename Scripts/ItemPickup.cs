@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class ItemPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myKey = transform.position.ToString();
+        myKey = SceneManager.GetActiveScene().buildIndex +"::" + transform.position.ToString();
         if (PlayerPrefs.HasKey(myKey) && getIsPickedUp() == 0)
         {
             Destroy(gameObject.transform.parent.gameObject);

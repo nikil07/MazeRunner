@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ECM.Components;
+using System;
 
 public class EnterLevel : MonoBehaviour
 {
@@ -26,7 +27,13 @@ public class EnterLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-         StartCoroutine(openMaze(PlayerPrefs.GetInt("currentGameLevel") + 1));
+        updateLevelCompleted();
+        StartCoroutine(openMaze(PlayerPrefs.GetInt("currentGameLevel") + 1));
+    }
+
+    private void updateLevelCompleted()
+    {
+        PlayerPrefs.SetInt("maze" + (PlayerPrefs.GetInt("currentGameLevel") -1 ), 1);
     }
 
     public IEnumerator openMaze(int maze)

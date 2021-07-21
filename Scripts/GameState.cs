@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
@@ -8,9 +9,12 @@ public class GameState : MonoBehaviour
     private int totalPickups;
     GameMenu gameMenu;
 
+    private string REMAINING_PICKUPS_KEY;
+
     // Start is called before the first frame update
     void Start()
     {
+        REMAINING_PICKUPS_KEY = "REMAINING_PICKUPS"+"maze" + SceneManager.GetActiveScene().buildIndex;
         ItemPickup.ItemPickedUp += handleItemPickup;
         gameMenu = FindObjectOfType<GameMenu>();
         StartCoroutine(setPickups());
@@ -25,13 +29,13 @@ public class GameState : MonoBehaviour
     }
 
     private void setRemainingPickups() {
-        PlayerPrefs.SetInt("REMAINING_PICKUPS", remainingPickups);
+        PlayerPrefs.SetInt(REMAINING_PICKUPS_KEY, remainingPickups);
         PlayerPrefs.Save();
     }
 
     private int getRemainingPickups() {
-        if (PlayerPrefs.HasKey("REMAINING_PICKUPS"))
-            return PlayerPrefs.GetInt("REMAINING_PICKUPS");
+        if (PlayerPrefs.HasKey(REMAINING_PICKUPS_KEY))
+            return PlayerPrefs.GetInt(REMAINING_PICKUPS_KEY);
         else
             return getTotalPickups();
     }
@@ -55,6 +59,7 @@ public class GameState : MonoBehaviour
         print(tag + " picked up");
         remainingPickups -= pickupPoints;
         if (remainingPickups < 0) {
+            PlayerPrefs.SetInt("maze" + SceneManager.GetActiveScene().buildIndex, 1);
             return;
         }
         setRemainingPickups();

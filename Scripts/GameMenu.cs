@@ -21,6 +21,8 @@ public class GameMenu : MonoBehaviour
     {
         enterLevel = FindObjectOfType<EnterLevel>();
         Cursor.lockState = CursorLockMode.None;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            PlayerPrefs.SetInt("maze0", 1);
     }
 
     // Update is called once per frame
