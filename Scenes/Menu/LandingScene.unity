@@ -389,7 +389,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358750457}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &358750459
 Camera:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 517992967}
   m_Layer: 0
-  m_Name: MazeEasy
+  m_Name: LevelLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

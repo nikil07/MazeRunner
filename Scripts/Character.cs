@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
     void Update()
     {
         updateCharacterInfo();
-        handleCheatCodes();
+        //handleCheatCodes();
     }
 
     private void handleCheatCodes() {

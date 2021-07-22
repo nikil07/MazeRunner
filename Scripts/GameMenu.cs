@@ -42,11 +42,13 @@ public class GameMenu : MonoBehaviour
     #region MainMenu
 
     public void showControls() {
+        SoundManager.buttonSound();
         controlsCanvas.gameObject.SetActive(true);
         mainMenuCanvas.gameObject.SetActive(false);
     }
 
     public void hideControls() {
+        SoundManager.buttonSound();
         controlsCanvas.gameObject.SetActive(false);
         mainMenuCanvas.gameObject.SetActive(true);
     }
@@ -54,6 +56,7 @@ public class GameMenu : MonoBehaviour
     #endregion
 
     public void startGame() {
+        SoundManager.buttonSound();
         int getLevelScene = PlayerPrefs.GetInt("currentGameLevel"); // TODO get current level being played by user
         if (getLevelScene == 0)
         {
@@ -67,20 +70,24 @@ public class GameMenu : MonoBehaviour
     }
 
     public void quitGame() {
+        SoundManager.buttonSound();
         Application.Quit();
     }
 
     public void goToLandingScene() {
         Time.timeScale = 1;
+        SoundManager.buttonSound();
         SceneManager.LoadScene("LandingScene");
     }
 
     public void showAllLevels() {
         Time.timeScale = 1;
+        SoundManager.buttonSound();
         SceneManager.LoadScene("AllLevelsScene");
     }
 
     public void showLevel(int level) {
+        SoundManager.buttonSound();
         if (level > SceneManager.sceneCountInBuildSettings)
         {
             print("INVALID LEVEL");
