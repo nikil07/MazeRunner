@@ -18,4 +18,9 @@ public class GameAssets : MonoBehaviour
     public AudioClip jumpSound;
 
     public AudioClip buttonClick;
+
+    public AudioClip goldPickupSound;
+
+    public AudioClip diamondPickupSound;
+
 }

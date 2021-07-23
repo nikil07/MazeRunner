@@ -16,4 +16,17 @@ public static class SoundManager
         AudioSource audioSource = jumpSoundGameObject.AddComponent<AudioSource>();
         audioSource.PlayOneShot(GameAssets.instance.buttonClick);
     }
+
+    public static void pickupSoundGold() {
+        GameObject jumpSoundGameObject = new GameObject("PickupSoundGold");
+        AudioSource audioSource = jumpSoundGameObject.AddComponent<AudioSource>();
+        audioSource.PlayOneShot(GameAssets.instance.goldPickupSound);
+    }
+
+    public static void pickupSoundDiamond()
+    {
+        GameObject jumpSoundGameObject = new GameObject("PickupSoundDiamond");
+        AudioSource audioSource = jumpSoundGameObject.AddComponent<AudioSource>();
+        audioSource.PlayOneShot(GameAssets.instance.diamondPickupSound);
+    }
 }

@@ -40,7 +40,7 @@ public class EnterLevel : MonoBehaviour
     {
         if (mouseLook)
             mouseLook.lockCursor = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         //maze++;
         if (maze <= SceneManager.sceneCountInBuildSettings-2)
         {

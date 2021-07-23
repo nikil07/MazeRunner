@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
     void Update()
     {
         updateCharacterInfo();
-        //handleCheatCodes();
+        handleCheatCodes();
     }
 
     private void handleCheatCodes() {
@@ -40,7 +40,7 @@ public class Character : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.C))
         {
-            transform.position = currentPosition.position;
+            transform.position =  GameObject.FindGameObjectWithTag("Exit").gameObject.transform.position;
         }
     }
 

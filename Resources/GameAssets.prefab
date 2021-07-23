@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: 623a3ac282217a140bfd05f0372756b7, type: 3}
   buttonClick: {fileID: 8300000, guid: 7fb23dc2f3ff21743bea5956a1aaafd3, type: 3}
+  goldPickupSound: {fileID: 8300000, guid: e0ee5d865b6998844b701aa6bf096167, type: 3}
+  diamondPickupSound: {fileID: 8300000, guid: bc19ba40dfb570344a479ae9ff5de90e, type: 3}

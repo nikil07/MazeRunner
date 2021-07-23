@@ -53,6 +53,10 @@ public class ItemPickup : MonoBehaviour
     }
 
     private void handlePlayerCollectedItem() {
+        if (pickupPoints == 1)
+            SoundManager.pickupSoundGold();
+        else if (pickupPoints == 3)
+            SoundManager.pickupSoundDiamond();
         ItemPickedUp?.Invoke(gameObject.tag, pickupPoints);
     }
 }

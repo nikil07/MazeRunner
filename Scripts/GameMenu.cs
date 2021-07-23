@@ -75,14 +75,25 @@ public class GameMenu : MonoBehaviour
     }
 
     public void goToLandingScene() {
+        StartCoroutine(goToLandingSceneCoroutine());
+    }
+
+    IEnumerator goToLandingSceneCoroutine() {
         Time.timeScale = 1;
         SoundManager.buttonSound();
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene("LandingScene");
     }
 
     public void showAllLevels() {
+        StartCoroutine(showAllLevelsCoroutine());
+    }
+
+    IEnumerator showAllLevelsCoroutine()
+    {
         Time.timeScale = 1;
         SoundManager.buttonSound();
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene("AllLevelsScene");
     }
 
