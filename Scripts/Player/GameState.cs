@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour
         yield return new WaitForSeconds(1f);
         totalPickups = getTotalPickups();
         remainingPickups = getRemainingPickups();
+        setPassPickups();
         gameMenu.updatePickupText(remainingPickups, totalPickups);
     }
 
@@ -44,6 +45,15 @@ public class GameState : MonoBehaviour
         return GameObject.Find("Pickups").gameObject.transform.childCount;
     }
 
+    private void setPassPickups() {
+        if (!PlayerPrefs.HasKey(Constants.PASS_PICKUPS_NUMBER + SceneManager.GetActiveScene().buildIndex))
+            PlayerPrefs.SetInt(Constants.PASS_PICKUPS_NUMBER + SceneManager.GetActiveScene().buildIndex, totalPickups / 2);
+    }
+
+    private int getPassPickups() {
+        return PlayerPrefs.GetInt(Constants.PASS_PICKUPS_NUMBER + SceneManager.GetActiveScene().buildIndex, 100);
+    }
+
     private void OnDestroy()
     {
         ItemPickup.ItemPickedUp -= handleItemPickup;
@@ -58,11 +68,15 @@ public class GameState : MonoBehaviour
     private void handleItemPickup(string tag, int pickupPoints) {
         print(tag + " picked up");
         remainingPickups -= pickupPoints;
-        if (remainingPickups < 0) {
-            PlayerPrefs.SetInt("maze" + SceneManager.GetActiveScene().buildIndex, 1);
-            return;
-        }
         setRemainingPickups();
+
+        if (remainingPickups <= getPassPickups()) {
+            PlayerPrefs.SetInt("maze" + SceneManager.GetActiveScene().buildIndex, 1);
+        }
+
+        if (remainingPickups < 0)
+            return;
+        
         gameMenu.updatePickupText(remainingPickups, totalPickups);
     }
 

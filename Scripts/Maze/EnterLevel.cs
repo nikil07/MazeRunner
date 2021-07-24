@@ -33,7 +33,7 @@ public class EnterLevel : MonoBehaviour
 
     private void updateLevelCompleted()
     {
-        PlayerPrefs.SetInt("maze" + (PlayerPrefs.GetInt("currentGameLevel") -1 ), 1);
+        PlayerPrefs.SetInt("maze" + (PlayerPrefs.GetInt("currentGameLevel")), 1);
     }
 
     public IEnumerator openMaze(int maze)
