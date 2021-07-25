@@ -12,6 +12,7 @@ public class GameMenu : MonoBehaviour
     [SerializeField] Canvas controlsCanvas;
     [SerializeField] Canvas mainMenuCanvas;
     [SerializeField] TMP_Text pickupsText;
+    [SerializeField] TMP_Text passPickupsText;
 
     EnterLevel enterLevel;
     private bool isPaused = false;
@@ -125,7 +126,8 @@ public class GameMenu : MonoBehaviour
         //FindObjectOfType<MouseLook>().externalLockCursor();
     }
 
-    public void updatePickupText(int picksupsLeft, int totalPickups) {
+    public void updatePickupText(int picksupsLeft,int passPickupsLeft ,int totalPickups) {
         pickupsText.SetText(picksupsLeft + "/" + totalPickups);
+        passPickupsText.SetText(passPickupsLeft + "/" + PlayerPrefs.GetInt(Constants.PASS_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
     }
 }

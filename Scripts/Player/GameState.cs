@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 public class GameState : MonoBehaviour
 {
     private int remainingPickups;
+    private int remainingPassPickups;
     private int totalPickups;
     GameMenu gameMenu;
 
     private string REMAINING_PICKUPS_KEY;
+    private string REMAINING_PASS_PICKUPS_KEY;
 
     // Start is called before the first frame update
     void Start()
     {
         REMAINING_PICKUPS_KEY = "REMAINING_PICKUPS"+"maze" + SceneManager.GetActiveScene().buildIndex;
+        REMAINING_PASS_PICKUPS_KEY = "REMAINING_PASS_PICKUPS" + "maze" + SceneManager.GetActiveScene().buildIndex;
         ItemPickup.ItemPickedUp += handleItemPickup;
         gameMenu = FindObjectOfType<GameMenu>();
         StartCoroutine(setPickups());
@@ -26,11 +29,16 @@ public class GameState : MonoBehaviour
         totalPickups = getTotalPickups();
         remainingPickups = getRemainingPickups();
         setPassPickups();
-        gameMenu.updatePickupText(remainingPickups, totalPickups);
+        if (PlayerPrefs.HasKey(REMAINING_PASS_PICKUPS_KEY))
+            remainingPassPickups = PlayerPrefs.GetInt(REMAINING_PASS_PICKUPS_KEY);
+        else
+            remainingPassPickups = getPassPickups();
+        gameMenu.updatePickupText(remainingPickups, remainingPassPickups ,totalPickups);
     }
 
     private void setRemainingPickups() {
         PlayerPrefs.SetInt(REMAINING_PICKUPS_KEY, remainingPickups);
+        PlayerPrefs.SetInt(REMAINING_PASS_PICKUPS_KEY, remainingPassPickups);
         PlayerPrefs.Save();
     }
 
@@ -68,6 +76,7 @@ public class GameState : MonoBehaviour
     private void handleItemPickup(string tag, int pickupPoints) {
         print(tag + " picked up");
         remainingPickups -= pickupPoints;
+        remainingPassPickups -= pickupPoints;
         setRemainingPickups();
 
         if (remainingPickups <= getPassPickups()) {
@@ -77,7 +86,7 @@ public class GameState : MonoBehaviour
         if (remainingPickups < 0)
             return;
         
-        gameMenu.updatePickupText(remainingPickups, totalPickups);
+        gameMenu.updatePickupText(remainingPickups, remainingPassPickups, totalPickups);
     }
 
 }
