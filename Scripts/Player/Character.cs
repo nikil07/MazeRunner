@@ -13,8 +13,6 @@ public class Character : MonoBehaviour
     [SerializeField] BaseCharacterController baseCharacterController;
     [SerializeField] TMP_Text textTimeToNextJump;
     [SerializeField] TMP_Text textJumpsLeft;
-    [Tooltip("Press B to cheat, C to return")]
-    [SerializeField] Transform cheatPosition;
 
     private Transform currentPosition;
  
@@ -35,9 +33,6 @@ public class Character : MonoBehaviour
 
     private void handleCheatCodes() {
         currentPosition = transform;
-        if (Input.GetKey(KeyCode.B)) {
-            transform.position = cheatPosition.position;
-        }
         if (Input.GetKey(KeyCode.C))
         {
             transform.position =  GameObject.FindGameObjectWithTag("Exit").gameObject.transform.position;

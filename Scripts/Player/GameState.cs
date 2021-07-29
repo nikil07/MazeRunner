@@ -50,7 +50,10 @@ public class GameState : MonoBehaviour
     }
 
     private int getTotalPickups() {
-        return GameObject.Find("Pickups").gameObject.transform.childCount;
+        int pickupsTotal = GameObject.Find("Pickups").gameObject.transform.childCount;
+        if (!PlayerPrefs.HasKey(Constants.TOTAL_PICKUPS_NUMBER + SceneManager.GetActiveScene().buildIndex))
+            PlayerPrefs.SetInt(Constants.TOTAL_PICKUPS_NUMBER + SceneManager.GetActiveScene().buildIndex, pickupsTotal);
+        return pickupsTotal;
     }
 
     private void setPassPickups() {
@@ -75,7 +78,8 @@ public class GameState : MonoBehaviour
 
     private void handleItemPickup(string tag, int pickupPoints) {
         print(tag + " picked up");
-        remainingPickups -= pickupPoints;
+        //remainingPickups -= pickupPoints;
+        remainingPickups -= 1;
         remainingPassPickups -= pickupPoints;
         setRemainingPickups();
 

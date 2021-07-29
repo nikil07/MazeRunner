@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelButton : MonoBehaviour
 {
@@ -21,15 +22,17 @@ public class LevelButton : MonoBehaviour
 
     private void setButtonStatus() {
         // Update button clickablity, Alpha and the lock image
+        
         if (PlayerPrefs.GetInt("maze" + buttonNumber, -1) == 1)
         {
+            if (buttonNumber > SceneManager.sceneCountInBuildSettings - 2)
+                return;
             lockImage.gameObject.SetActive(false);
             button.interactable = true;
             mainImage.color = new Color(mainImage.color.r, mainImage.color.g, mainImage.color.b, 1f);
         }
         else {
             lockImage.gameObject.SetActive(true);
-            //mainImage.color = new Color(mainImage.color.r, mainImage.color.g, mainImage.color.b, 0.3f);
             button.interactable = false;
         }
     }

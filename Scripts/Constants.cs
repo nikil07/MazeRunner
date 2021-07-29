@@ -6,4 +6,6 @@ public class Constants
 {
     public static string PREF_REMAINING_PICKUPS = "PREF_REMAINING_PICKUPS";
     public static string PASS_PICKUPS_NUMBER = "PASS_PICKUPS_NUMBER";
+
+    public static string TOTAL_PICKUPS_NUMBER = "TOTAL_PICKUPS_NUMBER";
 }

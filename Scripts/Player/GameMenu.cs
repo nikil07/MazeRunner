@@ -127,7 +127,9 @@ public class GameMenu : MonoBehaviour
     }
 
     public void updatePickupText(int picksupsLeft,int passPickupsLeft ,int totalPickups) {
-        pickupsText.SetText(picksupsLeft + "/" + totalPickups);
+        if (passPickupsLeft < 0)
+            passPickupsLeft = 0;
+        pickupsText.SetText(picksupsLeft + "/" + PlayerPrefs.GetInt(Constants.TOTAL_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
         passPickupsText.SetText(passPickupsLeft + "/" + PlayerPrefs.GetInt(Constants.PASS_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
     }
 }
