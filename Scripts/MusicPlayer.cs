@@ -20,7 +20,6 @@ public class MusicPlayer : MonoBehaviour
     }
 
     public void playMovementSound(bool isWalking) {
-        print("playmvementsound  " + isWalking );
         if(isWalking)
             walkingSound.Stop();
         else
