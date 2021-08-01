@@ -47,13 +47,18 @@ public class EnterLevel : MonoBehaviour
             // Code to execute after the delay
             PlayerPrefs.SetInt("currentGameLevel", maze);
             PlayerPrefs.Save();
-            SceneManager.LoadScene(maze);
+            print(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(maze)));
+            //SceneManager.LoadScene(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(maze)));
+            bl_SceneLoader.GetActiveLoader().LoadLevel(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(maze)));
+
+
         }
         else {
             // Code to execute after the delay
             PlayerPrefs.SetInt("currentGameLevel", 0);
             PlayerPrefs.Save();
-            SceneManager.LoadScene(0);
+            bl_SceneLoader.GetActiveLoader().LoadLevel(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(0)));
+            //SceneManager.LoadScene(0);
         }
     }
 }

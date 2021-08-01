@@ -82,8 +82,11 @@ public class GameMenu : MonoBehaviour
     IEnumerator goToLandingSceneCoroutine() {
         Time.timeScale = 1;
         SoundManager.buttonSound();
+        if (pauseMenuCanvas)
+            pauseMenuCanvas.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.1f);
-        SceneManager.LoadScene("LandingScene");
+        bl_SceneLoader.GetActiveLoader().LoadLevel("LandingScene");
+       // SceneManager.LoadScene("LandingScene");
     }
 
     public void showAllLevels() {
@@ -94,8 +97,11 @@ public class GameMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         SoundManager.buttonSound();
+        if(pauseMenuCanvas)
+            pauseMenuCanvas.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.1f);
-        SceneManager.LoadScene("AllLevelsScene");
+        bl_SceneLoader.GetActiveLoader().LoadLevel("AllLevelsScene");
+        //SceneManager.LoadScene("AllLevelsScene");
     }
 
     public void showLevel(int level) {
@@ -131,5 +137,11 @@ public class GameMenu : MonoBehaviour
             passPickupsLeft = 0;
         pickupsText.SetText(picksupsLeft + "/" + PlayerPrefs.GetInt(Constants.TOTAL_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
         passPickupsText.SetText(passPickupsLeft + "/" + PlayerPrefs.GetInt(Constants.PASS_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
+
+        if (passPickupsLeft == 0)
+            passPickupsText.color = (Color.green);
+
+        if(picksupsLeft == 0)
+            passPickupsText.color = (Color.green);
     }
 }

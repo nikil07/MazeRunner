@@ -83,7 +83,7 @@ public class GameState : MonoBehaviour
         remainingPassPickups -= pickupPoints;
         setRemainingPickups();
 
-        if (remainingPickups <= getPassPickups()) {
+        if (remainingPassPickups <= 0) {
             PlayerPrefs.SetInt("maze" + SceneManager.GetActiveScene().buildIndex, 1);
         }
 
