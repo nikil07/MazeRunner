@@ -20,6 +20,10 @@ public class ItemPickup : MonoBehaviour
         myKey = SceneManager.GetActiveScene().buildIndex +"::" + transform.position.ToString();
         if (PlayerPrefs.HasKey(myKey) && getIsPickedUp() == 0)
         {
+            //Destroy(gameObject.transform.parent.gameObject);
+            //Destroy(gameObject);
+
+            Instantiate(GameAssets.instance.ghostPickup, gameObject.transform.parent.gameObject.transform.position,Quaternion.identity);
             Destroy(gameObject.transform.parent.gameObject);
             Destroy(gameObject);
         }

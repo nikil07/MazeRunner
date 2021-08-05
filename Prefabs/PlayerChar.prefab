@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 500
-  _angularSpeed: 540
+  _angularSpeed: 300
   _acceleration: 50
   _deceleration: 20
   _groundFriction: 5
@@ -197,7 +197,7 @@ MonoBehaviour:
   _rootMotionRotation: 0
   _forwardSpeed: 100
   _backwardSpeed: 80
-  _strafeSpeed: 10
+  _strafeSpeed: 50
   _runSpeedMultiplier: 4
 --- !u!1 &1545134464018978753
 GameObject:

@@ -47,3 +47,5 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 7fb23dc2f3ff21743bea5956a1aaafd3, type: 3}
   goldPickupSound: {fileID: 8300000, guid: e0ee5d865b6998844b701aa6bf096167, type: 3}
   diamondPickupSound: {fileID: 8300000, guid: bc19ba40dfb570344a479ae9ff5de90e, type: 3}
+  ghostPickup: {fileID: 2575414675102154151, guid: 79c3077a1ea40814a903c4324ee5e9e4,
+    type: 3}

@@ -16,6 +16,7 @@ public class GameMenu : MonoBehaviour
 
     EnterLevel enterLevel;
     private bool isPaused = false;
+    int localPassPickupsLeft, localTotalPickupsLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -135,8 +136,11 @@ public class GameMenu : MonoBehaviour
     public void updatePickupText(int picksupsLeft,int passPickupsLeft ,int totalPickups) {
         if (passPickupsLeft < 0)
             passPickupsLeft = 0;
-        pickupsText.SetText(picksupsLeft + "/" + PlayerPrefs.GetInt(Constants.TOTAL_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
-        passPickupsText.SetText(passPickupsLeft + "/" + PlayerPrefs.GetInt(Constants.PASS_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
+        localTotalPickupsLeft = PlayerPrefs.GetInt(Constants.TOTAL_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex) - picksupsLeft;
+        pickupsText.SetText(localTotalPickupsLeft + "/" + PlayerPrefs.GetInt(Constants.TOTAL_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
+
+        localPassPickupsLeft = PlayerPrefs.GetInt(Constants.PASS_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex) - passPickupsLeft;
+        passPickupsText.SetText(localPassPickupsLeft + "/" + PlayerPrefs.GetInt(Constants.PASS_PICKUPS_NUMBER + +SceneManager.GetActiveScene().buildIndex));
 
         if (passPickupsLeft == 0)
             passPickupsText.color = (Color.green);

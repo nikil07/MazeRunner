@@ -23,4 +23,6 @@ public class GameAssets : MonoBehaviour
 
     public AudioClip diamondPickupSound;
 
+    public GameObject ghostPickup;
+
 }
