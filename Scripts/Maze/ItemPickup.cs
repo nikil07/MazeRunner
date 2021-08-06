@@ -52,6 +52,8 @@ public class ItemPickup : MonoBehaviour
         if (other.gameObject.tag.Equals("Player")) {
             handlePlayerCollectedItem();
             setIsPickedUp(0);
+            Instantiate(GameAssets.instance.ghostPickup, gameObject.transform.parent.gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject.transform.parent.gameObject);
             Destroy(gameObject);
         }
     }
